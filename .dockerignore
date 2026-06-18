@@ -1,2 +1,11 @@
-*
-!packages/
+node_modules
+markitdown-frontend/node_modules
+markitdown-frontend/dist
+__pycache__
+*.pyc
+.git
+.github
+docs
+*.md
+!README.md
+.env*

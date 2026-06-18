@@ -15,7 +15,7 @@ function saveSettings(settings) {
 
 export default function SettingsModal({ isOpen, onClose }) {
   const [settings, setSettings] = useState(() => ({
-    apiUrl: 'http://localhost:7860',
+    apiUrl: '/api',
     saveHistory: true,
     ...loadSettings(),
   }))
@@ -24,7 +24,7 @@ export default function SettingsModal({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) {
       setSettings({
-        apiUrl: 'http://localhost:7860',
+        apiUrl: '/api',
         saveHistory: true,
         ...loadSettings(),
       })
@@ -42,7 +42,7 @@ export default function SettingsModal({ isOpen, onClose }) {
   }
 
   const handleReset = () => {
-    const defaults = { apiUrl: 'http://localhost:7860', saveHistory: true }
+    const defaults = { apiUrl: '/api', saveHistory: true }
     setSettings(defaults)
     saveSettings(defaults)
   }
@@ -88,7 +88,7 @@ export default function SettingsModal({ isOpen, onClose }) {
               value={settings.apiUrl}
               onChange={(e) => setSettings({ ...settings, apiUrl: e.target.value })}
               className="input-field font-mono text-sm"
-              placeholder="http://localhost:7860"
+              placeholder="/api"
               aria-label="URL do endpoint da API"
             />
             <p className="text-xs text-brand-gray-400 dark:text-[#888880]">
