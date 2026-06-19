@@ -7,7 +7,6 @@ import FileUpload from './components/Converter/FileUpload.jsx'
 import UrlInput from './components/Converter/UrlInput.jsx'
 import TextInput from './components/Converter/TextInput.jsx'
 import ResultPanel from './components/Preview/ResultPanel.jsx'
-import SettingsModal from './components/ui/SettingsModal.jsx'
 import ErrorState from './components/ui/ErrorState.jsx'
 import SuccessBanner from './components/ui/SuccessBanner.jsx'
 
@@ -24,7 +23,6 @@ function App() {
     return false
   })
   const [activeTab, setActiveTab] = useState('file')
-  const [settingsOpen, setSettingsOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
     return typeof window !== 'undefined' && window.innerWidth < 768
   })
@@ -82,7 +80,6 @@ function App() {
       <Header
         darkMode={darkMode}
         onToggleDark={() => setDarkMode((d) => !d)}
-        onOpenSettings={() => setSettingsOpen(true)}
       />
 
       <div className="flex-1 flex min-h-0">
@@ -157,10 +154,6 @@ function App() {
         </main>
       </div>
 
-      <SettingsModal
-        isOpen={settingsOpen}
-        onClose={() => setSettingsOpen(false)}
-      />
     </div>
   )
 }

@@ -30,12 +30,6 @@ export function useHistory() {
   }, [])
 
   const addItem = useCallback((entry) => {
-    // Check settings for history saving
-    try {
-      const settings = JSON.parse(localStorage.getItem('markitdown-settings') || '{}')
-      if (settings.saveHistory === false) return
-    } catch { /* proceed */ }
-
     setItems((prev) => {
       const newItem = {
         id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),

@@ -1,7 +1,7 @@
-import { FileText, Settings, Moon, Sun, Menu, X } from 'lucide-react'
+import { FileText, Moon, Sun, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
-export default function Header({ darkMode, onToggleDark, onOpenSettings }) {
+export default function Header({ darkMode, onToggleDark }) {
   return (
     <header className="h-14 border-b border-brand-gray-200 dark:border-[#3a3a38] bg-white/80 dark:bg-[#1a1a18]/80 backdrop-blur-md flex items-center justify-between px-4 z-50 relative">
       <div className="flex items-center gap-3">
@@ -19,14 +19,6 @@ export default function Header({ darkMode, onToggleDark, onOpenSettings }) {
       </div>
 
       <div className="flex items-center gap-1">
-        <button
-          onClick={onOpenSettings}
-          className="btn-icon"
-          aria-label="Configurações"
-          title="Configurações"
-        >
-          <Settings className="w-4 h-4" />
-        </button>
         <button
           onClick={onToggleDark}
           className="btn-icon"
