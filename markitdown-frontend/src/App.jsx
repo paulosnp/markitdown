@@ -48,14 +48,14 @@ function App() {
 
   // Save to history on successful conversion
   useEffect(() => {
-    if (converter.status === 'success' && converter.result) {
+    if (converter.status === 'success' && converter.result && !converter.isRestored) {
       history.addItem({
         sourceInfo: converter.sourceInfo,
         result: converter.result,
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [converter.status])
+  }, [converter.status, converter.isRestored])
 
   const handleHistoryClick = useCallback((item) => {
     converter.restoreResult(item)

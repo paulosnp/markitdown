@@ -14,6 +14,7 @@ export function useConvert() {
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
   const [sourceInfo, setSourceInfo] = useState(null)
+  const [isRestored, setIsRestored] = useState(false)
   const abortRef = useRef(false)
 
   const reset = useCallback(() => {
@@ -23,6 +24,7 @@ export function useConvert() {
     setError(null)
     setSourceInfo(null)
     abortRef.current = false
+    setIsRestored(false)
   }, [])
 
   const handleFile = useCallback(async (file) => {
@@ -99,6 +101,7 @@ export function useConvert() {
     setStatus(STATUS.SUCCESS)
     setProgress(100)
     document.title = `${data.sourceInfo?.name || 'Resultado'} — MarkItDown`
+    setIsRestored(true)
   }, [])
 
   return {
@@ -107,6 +110,7 @@ export function useConvert() {
     result,
     error,
     sourceInfo,
+    isRestored,
     handleFile,
     handleUrl,
     handleText,
